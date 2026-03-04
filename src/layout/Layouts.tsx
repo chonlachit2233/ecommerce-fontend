@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom"
+import Mainnav from "../component/Mainnav"
 
 
 const layouts = () => {
   return (
     <div>
-        <h1>Home page</h1>
+        <Mainnav/>
         <hr />
         <Outlet/>
     </div>

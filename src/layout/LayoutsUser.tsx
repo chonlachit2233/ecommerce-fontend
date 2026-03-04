@@ -1,8 +1,13 @@
+import { Outlet } from "react-router-dom"
 
 
 const LayoutsUser = () => {
   return (
-    <div>LayoutsUser</div>
+    <div>
+      <h1>Home Page</h1>
+      <hr />
+      <Outlet/>
+    </div>
   )
 }
 

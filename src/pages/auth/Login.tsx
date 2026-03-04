@@ -1,8 +1,53 @@
+import { useState, type ChangeEvent } from "react"
+import useStore from "../../store/ecom-store"
 
 
 const Login = () => {
+
+  const actionlogin = useStore((state)=> state.actionlogin)
+  const user = useStore((state)=> state.user)
+  console.log('User is Zustand', user)
+
+   
+  const [form, setform] = useState({
+    email: "",
+    password: ""
+  })
+
+  const handleOnchang = (e: ChangeEvent<HTMLInputElement>) =>{
+     setform({
+      ...form,
+      [e.target.name]: e.target.value
+     })
+  }
+
+  const handleOnsubmit = async(e: React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault()
+    console.log(form)
+    const res = await actionlogin(form)
+    console.log(res)
+  }
+  
   return (
-    <div>Login</div>
+    <div>
+      Login
+      <form onSubmit={handleOnsubmit}>
+        email
+        <input className="border"
+        onChange={handleOnchang}
+        name="email"
+        type="email"
+        />
+
+        password
+        <input className="border"
+         onChange={handleOnchang}
+        name="password"
+        type="password"
+        />
+        <button className="bg-blue-300 rounded-md mx-3">Login</button>
+      </form>
+      </div>
   )
 }
 
