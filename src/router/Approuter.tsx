@@ -14,6 +14,8 @@ import Product from "../pages/admin/Product"
 import Manage from "../pages/admin/Manage"
 import LayoutsUser from "../layout/LayoutsUser"
 import Homeuser from "../pages/user/Homeuser"
+import Cerrentuser from "./Cerrentuser"
+import Cerrentadmin from "./Cerrentadmin"
 
 
 
@@ -38,7 +40,7 @@ const Approuter = () => {
 
     {
       path: '/admin',
-      element: <LayoutsAdmin />,
+      element: <Cerrentadmin element={<LayoutsAdmin/> }/>,
       children: [
         { index: true, element: <Dashbord /> },
         {path: 'category', element: <Category/>},
@@ -48,7 +50,7 @@ const Approuter = () => {
     },
 
     {path: '/user' ,
-      element: <LayoutsUser/>,
+      element: <Cerrentuser element={<LayoutsUser/>}/>,
       children: [
       {path: 'homeuser', element: <Homeuser/>}
 

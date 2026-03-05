@@ -1,8 +1,11 @@
+import Formproduct from "../../component/admin/Formproduct"
 
 
 const Product = () => {
   return (
-    <div>Product</div>
+    <div>
+      <Formproduct/>
+    </div>
   )
 }
 

@@ -1,8 +1,9 @@
+import Formcategory from "../../component/admin/Formcategory"
 
 
 const Category = () => {
   return (
-    <div>Category</div>
+   <Formcategory/>
   )
 }
 

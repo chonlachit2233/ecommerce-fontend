@@ -1,13 +1,20 @@
 import { Outlet } from "react-router-dom"
+import Sindbar from "../component/admin/Sindbar"
+import Header from "../component/admin/Header"
 
 
 const LayoutsAdmin = () => {
   return (
-    <div>
-      <h1>Sindbar</h1>
-      <h1>Header</h1>
-      <hr />
-      <Outlet/>
+    <div className="flex h-screen ">
+      <Sindbar />
+      <div className="flex flex-1 flex-col">
+        <Header />
+
+        <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">
+          <Outlet />
+        </main>
+
+      </div>
     </div>
   )
 }
