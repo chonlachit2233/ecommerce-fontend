@@ -25,14 +25,14 @@ const useStore = create<BearState>()(persist((set) => ({
     },
     getcategory: async(token:string) =>{
         const res = await Listcategory(token)
-        console.log(res)
+        
     set({
         categoryis: res.data.categorylist
     })
     },
     getproducts: async(token: string, count: number) =>{
         const res = await Listproduct(token, count)
-        console.log(res)
+        
         set({
             products: res.data.listproduct
         })

@@ -3,6 +3,7 @@ import type { ProductForm } from "../../types/product"
 import useStore from "../../store/ecom-store"
 import { Createproduct, Listproduct } from "../../api/product"
 import { toast } from "react-toastify"
+import Uploadfile from "./Uploadfile"
 
 
 const Formproduct = () => {
@@ -25,7 +26,7 @@ const Formproduct = () => {
   const products = useStore((state) => state.products)
   const getproduct = useStore((state) => state.getproducts)
   const getcategoryis = useStore((state) => state.getcategory)
-  console.log(products)
+
   useEffect(() => {
     if (!token) {
       return
@@ -109,6 +110,11 @@ const Formproduct = () => {
 
         </select>
         <br />
+        <br />
+        {/* Uploadfine */}
+        <Uploadfile form={form} setform={setform} />
+
+
 
         <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5 mt-4 ">เพิ่มสินค้า</button>
 
@@ -134,7 +140,7 @@ const Formproduct = () => {
           {
             products.map((itemp, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <th scope="row ">{index + 1}</th>
                   <td className="border p-3">{itemp.title}</td>
                   <td className="border p-3">{itemp.description}</td>
@@ -142,8 +148,11 @@ const Formproduct = () => {
                   <td className="border p-3">{itemp.quantity}</td>
                   <td className="border p-3">{itemp.categoryId}</td>
                   <td className="border p-3">{itemp.updatedAt}</td>
-                  <button className="bg-red-400 border p-3">ลบ</button>
-                  <button className="bg-yellow-400 border p-3">แก้ไข</button>
+                  <td>
+                    <button className="bg-red-400 border p-3">ลบ</button>
+                    <button className="bg-yellow-400 border p-3">แก้ไข</button>
+                  </td>
+
                 </tr>
 
               )
