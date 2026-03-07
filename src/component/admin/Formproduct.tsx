@@ -1,7 +1,7 @@
 import { useEffect, useState, type ChangeEvent } from "react"
 import type { ProductForm } from "../../types/product"
 import useStore from "../../store/ecom-store"
-import { Createproduct, Listproduct } from "../../api/product"
+import { Createproduct,  } from "../../api/product"
 import { toast } from "react-toastify"
 import Uploadfile from "./Uploadfile"
 

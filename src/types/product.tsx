@@ -12,7 +12,7 @@ export interface ProductForm {
     description: string
     price: number
     quantity: number
-    categoryId: number
+    categoryId: string
     images: ImageType[],
     updatedAt: string
 }

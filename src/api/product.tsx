@@ -31,3 +31,16 @@ export const UploadFiles = (token: string, image: string) => {
         }
     })
 }
+export const RemoveFiles = (token: string, public_id: string) => {
+
+    // console.log('form api fontend ', form)
+    // console.log(form)
+    return axios.post('http://localhost:5005/api/removeimages', {
+        public_id
+    }, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
