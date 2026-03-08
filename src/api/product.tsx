@@ -19,6 +19,30 @@ export const Listproduct = (token: string, count: number) => {
     })
 }
 
+export const readproduct = (token: string, id: number) => {
+    return axios.get('http://localhost:5005/api/products/' + id, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
+export const deleteproduct = (token: string, id: number) => {
+    return axios.delete('http://localhost:5005/api/product/' + id, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
+export const updateproduct = (token: string, id: number, form: ProductForm) => {
+    return axios.put('http://localhost:5005/api/updateproduct/' + id, form, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+}
+
 export const UploadFiles = (token: string, image: string) => {
 
     // console.log('form api fontend ', form)

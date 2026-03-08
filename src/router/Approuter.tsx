@@ -16,6 +16,7 @@ import LayoutsUser from "../layout/LayoutsUser"
 import Homeuser from "../pages/user/Homeuser"
 import Cerrentuser from "./Cerrentuser"
 import Cerrentadmin from "./Cerrentadmin"
+import Editproduct from "../pages/admin/Editproduct"
 
 
 
@@ -45,6 +46,7 @@ const Approuter = () => {
         { index: true, element: <Dashbord /> },
         {path: 'category', element: <Category/>},
         {path: 'product', element: <Product/>},
+        {path: 'product/:id', element: <Editproduct/>},
         {path: 'manage', element:<Manage/>}
       ]
     },

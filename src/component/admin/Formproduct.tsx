@@ -1,19 +1,21 @@
 import { useEffect, useState, type ChangeEvent } from "react"
 import type { ProductForm } from "../../types/product"
 import useStore from "../../store/ecom-store"
-import { Createproduct,  } from "../../api/product"
+import { Createproduct, deleteproduct, } from "../../api/product"
 import { toast } from "react-toastify"
 import Uploadfile from "./Uploadfile"
+import { Link } from "react-router-dom"
 
 
 const Formproduct = () => {
 
   const initialForm: ProductForm = {
 
-    title: "นมสดน้ำผึ้ง",
-    description: "หวานน้อย",
-    price: 45,
-    quantity: 20,
+    id: 0,
+    title: "",
+    description: "",
+    price: 0,
+    quantity: 0,
     categoryId: '',
     images: [],
     updatedAt: ''
@@ -52,11 +54,28 @@ const Formproduct = () => {
     try {
       const res = await Createproduct(token, form)
       console.log(res)
-
+      setform(initialForm)
+      getproduct(token, 10)
       toast.success(`เพิ่มข้อมมูลสินค้า ${res.data.createproduct.title} สำเร็จ`)
       getproduct(token, 10)
     } catch (err) {
       console.log(err)
+    }
+  }
+
+  const handledelete = async (id: number) => {
+    if (!token) {
+      return toast.error('No Token handle delete')
+    }
+    if (window.confirm('คุณแน่ใจที่จะลบไหม')) {
+      try {
+        const res = await deleteproduct(token, id)
+        console.log(res)
+        toast.success('Deleted สินค้าเรียบร้อยแล้ว')
+        getproduct(token, 10)
+      } catch (err: any) {
+        console.log(err.response)
+      }
     }
   }
 
@@ -127,6 +146,7 @@ const Formproduct = () => {
         <thead>
           <tr className="">
             <th scope="col">No.</th>
+            <th scope="col">รูปภาพ</th>
             <th scope="col">ชื่อสินค้า</th>
             <th scope="col">รายละเอียดสินค้า</th>
             <th scope="col">ราคาสินค้า</th>
@@ -142,15 +162,31 @@ const Formproduct = () => {
               return (
                 <tr key={index}>
                   <th scope="row ">{index + 1}</th>
+                  <td className="border p-3">
+
+                    {
+                      itemp.images.length > 0
+                        ? <img
+                          className="w-24 h-24 rounded-lg shadow-md"
+                          src={itemp.images[0].url} />
+                        : <div
+                          className="w-24 h-24 bg-gray-200 rounded-md flex items-center justify-center shadow-md"
+                        >No Image</div>
+                    }
+
+                  </td>
                   <td className="border p-3">{itemp.title}</td>
                   <td className="border p-3">{itemp.description}</td>
                   <td className="border p-3">{itemp.price}</td>
                   <td className="border p-3">{itemp.quantity}</td>
                   <td className="border p-3">{itemp.categoryId}</td>
                   <td className="border p-3">{itemp.updatedAt}</td>
-                  <td>
-                    <button className="bg-red-400 border p-3">ลบ</button>
-                    <button className="bg-yellow-400 border p-3">แก้ไข</button>
+                  <td className="border p-3 ">
+                    <button className="bg-yellow-400 border p-3 shadow-md"><Link to={'/admin/product/' + itemp.id}>แก้ไข</Link></button>
+                    <button
+                      onClick={() => handledelete(itemp.id)}
+                      className="bg-red-400 border p-3 shadow-md ">ลบ</button>
+
                   </td>
 
                 </tr>

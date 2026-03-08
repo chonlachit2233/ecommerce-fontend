@@ -23,22 +23,22 @@ const useStore = create<BearState>()(persist((set) => ({
 
         return res
     },
-    getcategory: async(token:string) =>{
+    getcategory: async (token: string) => {
         const res = await Listcategory(token)
-        
-    set({
-        categoryis: res.data.categorylist
-    })
+
+        set({
+            categoryis: res.data.categorylist
+        })
     },
-    getproducts: async(token: string, count: number) =>{
+    getproducts: async (token: string, count: number) => {
         const res = await Listproduct(token, count)
-        
+
         set({
             products: res.data.listproduct
         })
     }
 
-   
+
 }),
     { name: "ecom" }
 )
