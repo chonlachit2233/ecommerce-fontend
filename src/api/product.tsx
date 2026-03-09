@@ -11,12 +11,8 @@ export const Createproduct = (token: string, form: ProductForm) => {
     })
 }
 
-export const Listproduct = (token: string, count: number) => {
-    return axios.get('http://localhost:5005/api/product/' + count, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    })
+export const Listproduct = ( count: number) => {
+    return axios.get('http://localhost:5005/api/product/' + count,)
 }
 
 export const readproduct = (token: string, id: number) => {

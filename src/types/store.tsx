@@ -8,6 +8,6 @@ export interface BearState {
     categoryis: Category[]
     products: ProductForm[]
     actionlogin: (form: LoginForm) => Promise<any>
-    getcategory: (token:string) => Promise<any>
-    getproducts: (token: string, count: number) => Promise<any>
+    getcategory: () => Promise<any>
+    getproducts: ( count: number) => Promise<any>
 }

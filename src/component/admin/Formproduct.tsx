@@ -5,6 +5,8 @@ import { Createproduct, deleteproduct, } from "../../api/product"
 import { toast } from "react-toastify"
 import Uploadfile from "./Uploadfile"
 import { Link } from "react-router-dom"
+import { SquarePen } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 
 
 const Formproduct = () => {
@@ -33,8 +35,8 @@ const Formproduct = () => {
     if (!token) {
       return
     }
-    getcategoryis(token)
-    getproduct(token, 10)
+    getcategoryis()
+    getproduct( 10)
   }, [])
 
   const handleonchang = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -55,9 +57,9 @@ const Formproduct = () => {
       const res = await Createproduct(token, form)
       console.log(res)
       setform(initialForm)
-      getproduct(token, 10)
+      getproduct( 10)
       toast.success(`เพิ่มข้อมมูลสินค้า ${res.data.createproduct.title} สำเร็จ`)
-      getproduct(token, 10)
+      getproduct( 10)
     } catch (err) {
       console.log(err)
     }
@@ -72,7 +74,7 @@ const Formproduct = () => {
         const res = await deleteproduct(token, id)
         console.log(res)
         toast.success('Deleted สินค้าเรียบร้อยแล้ว')
-        getproduct(token, 10)
+        getproduct( 10)
       } catch (err: any) {
         console.log(err.response)
       }
@@ -130,12 +132,13 @@ const Formproduct = () => {
         </select>
         <br />
         <br />
+        
         {/* Uploadfine */}
         <Uploadfile form={form} setform={setform} />
 
 
 
-        <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5 mt-4 ">เพิ่มสินค้า</button>
+        <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5 mt-4 hover:scale-105">เพิ่มสินค้า</button>
 
         <hr className="mt-2" />
 
@@ -182,10 +185,10 @@ const Formproduct = () => {
                   <td className="border p-3">{itemp.categoryId}</td>
                   <td className="border p-3">{itemp.updatedAt}</td>
                   <td className="border p-3 ">
-                    <button className="bg-yellow-400 border p-3 shadow-md"><Link to={'/admin/product/' + itemp.id}>แก้ไข</Link></button>
+                    <button className="bg-yellow-400 border p-3 shadow-md hover:scale-105"><Link to={'/admin/product/' + itemp.id}>    <SquarePen /></Link></button>
                     <button
                       onClick={() => handledelete(itemp.id)}
-                      className="bg-red-400 border p-3 shadow-md ">ลบ</button>
+                      className="bg-red-400 border p-3 shadow-md hover:scale-105">    <Trash2 /></button>
 
                   </td>
 

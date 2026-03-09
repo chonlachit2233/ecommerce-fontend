@@ -1,10 +1,11 @@
 import { useEffect, useState, type ChangeEvent } from "react"
 import type { ProductForm } from "../../types/product"
 import useStore from "../../store/ecom-store"
-import { Createproduct, readproduct, updateproduct } from "../../api/product"
+import {  readproduct, updateproduct } from "../../api/product"
 import { toast } from "react-toastify"
 import Uploadfile from "./Uploadfile"
 import { useNavigate, useParams } from "react-router-dom"
+
 
 
 const Formeditproduct = () => {
@@ -32,7 +33,7 @@ const Formeditproduct = () => {
         if (!token) {
             return
         }
-        getcategoryis(token)
+        getcategoryis()
         fetchproduct(token, Number(id))
 
     }, [])

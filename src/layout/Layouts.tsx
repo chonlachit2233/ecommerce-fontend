@@ -5,9 +5,12 @@ import Mainnav from "../component/Mainnav"
 const layouts = () => {
   return (
     <div>
-        <Mainnav/>
-        <hr />
-        <Outlet/>
+      <Mainnav />
+      <hr />
+      <main className="h-full px-4 mt-2 mx-auto">
+        <Outlet />
+
+      </main>
     </div>
   )
 }
