@@ -64,3 +64,7 @@ export const RemoveFiles = (token: string, public_id: string) => {
     })
 }
 
+export const SearchFilters = ( arg: Record<string, unknown>) => {
+    return axios.post('http://localhost:5005/api/search/filters' ,arg)
+}
+

@@ -11,6 +11,7 @@ export interface ProductForm {
     id: number
     title: string
     description: string
+    count: number
     price: number
     quantity: number
     categoryId: string

@@ -1,12 +1,15 @@
 import { ShoppingCart } from 'lucide-react';
 import type { ProductForm } from '../../types/product';
+import useStore from '../../store/ecom-store';
 
 type Props = {
     itemp: ProductForm
 }
 const Cartproduct = ({ itemp }: Props) => {
-
-    console.log(itemp)
+ 
+    const actionaddcart = useStore((state)=> state.actionAddtocart)
+//  console.log(itemp)
+  
     return (
         <div className="border rounded-md shadow-md p-2 w-48">
 
@@ -29,7 +32,9 @@ const Cartproduct = ({ itemp }: Props) => {
 
             <div className='flex justify-between items-center'>
                 <span className='text-sm font-bold'>{itemp.price}</span>
-                <button className='bg-blue-500 rounded-md p-2 hover:bg-blue-600 '><ShoppingCart /></button>
+                <button 
+                onClick={()=>actionaddcart(itemp)}
+                className='bg-blue-500 rounded-md p-2 hover:bg-blue-600 '><ShoppingCart /></button>
             </div>
         </div>
     )

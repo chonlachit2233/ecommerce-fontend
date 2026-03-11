@@ -1,13 +1,15 @@
 import { useEffect } from "react"
 import Cartproduct from "../component/cart/Cartproduct"
 import useStore from "../store/ecom-store"
+import Searchcart from "../component/cart/Searchcart"
+import CartCard from "../component/cart/CartCard"
 
 
 const Shop = () => {
    
   const getproduct = useStore((state)=> state.getproducts)
   const products = useStore((state)=> state.products)
-
+ 
 
 
   useEffect(()=>{
@@ -20,7 +22,7 @@ const Shop = () => {
       {/* Search Bar */}
 
       <div className="w-1/4 p-4 bg-gray-100 h-screen">
-        Searchbar
+        <Searchcart/>
       </div>
 
       {/* product */}
@@ -47,7 +49,7 @@ const Shop = () => {
       {/* Cart */}
 
       <div className="w-1/4 p-4 bg-gray-100 h-screen overflow-y-auto">
-        Cart
+        <CartCard/>
       </div>
 
     </div>
