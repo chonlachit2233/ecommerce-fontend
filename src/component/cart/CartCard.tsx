@@ -1,5 +1,6 @@
 import { Trash2 } from 'lucide-react';
 import useStore from '../../store/ecom-store';
+import { Link } from 'react-router-dom';
 
 const CartCard = () => {
 
@@ -37,11 +38,6 @@ const CartCard = () => {
                                                 No Image
                                             </div>
                                     }
-
-
-
-
-
 
                                     <div >
                                         <p className="font-bold">{itemp.title}</p>
@@ -87,7 +83,13 @@ const CartCard = () => {
                 </div>
                 {/* Button */}
                 <div>
-                    <button className='mt-2 bg-green-500 text-white w-full py-2 shadow-md rounded-md hover:bg-green-700'>ดำเนินการชำระเงิน</button>
+
+                    <Link 
+                    to = "/cart">
+                        <button
+
+                            className='mt-2 bg-green-500 text-white w-full py-2 shadow-md rounded-md hover:bg-green-700'>ดำเนินการชำระเงิน</button>
+                    </Link>
                 </div>
             </div>
 

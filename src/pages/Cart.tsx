@@ -1,8 +1,11 @@
+import Listcart from "../component/cart/Listcart"
 
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <div>
+      <Listcart/>
+    </div>
   )
 }
 
