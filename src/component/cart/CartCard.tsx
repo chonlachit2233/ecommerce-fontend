@@ -68,7 +68,7 @@ const CartCard = () => {
                                 </div>
                                 {/* Right */}
                                 <div className="font-bold text-blue-500">
-                                    {itemp.price}฿
+                                    {itemp.price * itemp.count}฿
                                 </div>
                             </div>
 
