@@ -1,8 +1,11 @@
+import Summarycard from "../component/cart/Summarycard"
 
 
 const Checkout = () => {
   return (
-    <div>Checkout</div>
+    <div>
+      <Summarycard/>
+    </div>
   )
 }
 

@@ -146,28 +146,7 @@ const Register = () => {
         </div>
       </section>
 
-      Register
-      <form onSubmit={handleOnsubmit}>
-        email
-        <input className="border"
-          onChange={handleOnchang}
-          name="email"
-          type="email"
-        />
-        password
-        <input className="border"
-          onChange={handleOnchang}
-          name="password"
-          type="password"
-        />
-        confirmpassword
-        <input className="border"
-          onChange={handleOnchang}
-          name="confirmpassword"
-          type="password"
-        />
-        <button className="bg-green-700 text-white rounded-md mx-3">Register</button>
-      </form>
+      
     </div>
   )
 }
