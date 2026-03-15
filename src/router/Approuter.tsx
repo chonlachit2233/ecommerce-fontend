@@ -17,6 +17,7 @@ import Homeuser from "../pages/user/Homeuser"
 import Cerrentuser from "./Cerrentuser"
 import Cerrentadmin from "./Cerrentadmin"
 import Editproduct from "../pages/admin/Editproduct"
+import Payment from "../pages/user/Payment"
 
 
 
@@ -54,7 +55,8 @@ const Approuter = () => {
     {path: '/user' ,
       element: <Cerrentuser element={<LayoutsUser/>}/>,
       children: [
-      {path: 'homeuser', element: <Homeuser/>}
+      {index: true, element: <Homeuser/>},
+      {path: 'payment', element: <Payment/>}
 
       ]
       
