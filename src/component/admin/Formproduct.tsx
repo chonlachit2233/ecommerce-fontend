@@ -17,6 +17,7 @@ const Formproduct = () => {
     title: "",
     description: "",
     price: 0,
+    count: 0,
     quantity: 0,
     categoryId: '',
     images: [],

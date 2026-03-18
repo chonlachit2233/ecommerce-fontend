@@ -15,6 +15,7 @@ const Formeditproduct = () => {
         title: "นมสดน้ำผึ้ง",
         description: "หวานน้อย",
         price: 45,
+        count: 0,
         quantity: 20,
         categoryId: '',
         images: [],

@@ -14,10 +14,8 @@ const Formcategory = () => {
 
 
     useEffect(() => {
-        if (!token) {
-            return
-        }
-        getcategory(token)
+       
+        getcategory()
     }, [])
    
 
@@ -34,7 +32,7 @@ const Formcategory = () => {
             const res = await Createcategory(token, { name })
             console.log(res)
             toast.success(`Create Category ${name} success`)
-            getcategory(token)
+            getcategory()
         } catch (err) {
             console.log(err)
         }
@@ -49,7 +47,7 @@ const Formcategory = () => {
             const res = await Removecategory(token, id)
             console.log(res)
             toast.success(`Remove Category ${name} Success`)
-            getcategory(token)
+            getcategory()
         } catch (err) {
             console.log(err)
         }

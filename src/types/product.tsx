@@ -15,6 +15,6 @@ export interface ProductForm {
     price: number
     quantity: number
     categoryId: string
-    images: ImageType[],
+    images: ImageType[]
     updatedAt: string
 }
