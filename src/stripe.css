@@ -1,0 +1,101 @@
+/* Wrapper ของฟอร์มทั้งหมด */
+.stripe-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+              0px 2px 5px 0px rgba(50, 50, 93, 0.1),
+              0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* PaymentElement wrapper */
+.payment-element-wrapper {
+  background: #f9f9f9;
+  border: 1px solid rgba(50, 50, 93, 0.1);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+/* Submit button */
+.stripe-button {
+  background: #5469d4;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 100%;
+
+  /* สำหรับ spin/รอ */
+  position: relative;
+}
+
+/* hover → สีเข้มขึ้น (opacity effect) */
+.stripe-button:hover {
+  background: #4353b3; /* สีเข้มกว่าเดิม */
+  opacity: 0.9;
+}
+
+/* active / กด → ขยายเล็กน้อย */
+.stripe-button:active {
+  transform: scale(1.05);
+}
+
+/* loading state */
+.stripe-button.loading {
+  pointer-events: none; /* ป้องกันการคลิกซ้ำ */
+  color: transparent; /* ซ่อนข้อความ */
+}
+
+/* สร้างวงกลมหมุน */
+.stripe-button.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* keyframes สำหรับหมุน */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.stripe-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Error message */
+.error-message {
+  color: #d9534f; /* สีแดง */
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+}
+
+/* Responsive */
+@media only screen and (max-width: 600px) {
+  .stripe-form {
+    width: 90%;
+    padding: 30px;
+  }
+}

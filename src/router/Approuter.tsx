@@ -18,7 +18,11 @@ import Cerrentuser from "./Cerrentuser"
 import Cerrentadmin from "./Cerrentadmin"
 import Editproduct from "../pages/admin/Editproduct"
 import Payment from "../pages/user/Payment"
+import PaymentStatus from "../pages/PaymentStatus"
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
+const stripePromise = loadStripe('pk_test_51TBXuJQkcngcAjiXoCV1jeMq7HmTJFPGEd7mMPxukXiKYAz5M4Ijg3X8Oi1ygtBYq9UzOT1ZlJTAshXXpwJqGd4p00tiA8rZAV');
 
 
 const Approuter = () => {
@@ -42,25 +46,43 @@ const Approuter = () => {
 
     {
       path: '/admin',
-      element: <Cerrentadmin element={<LayoutsAdmin/> }/>,
+      element: <Cerrentadmin element={<LayoutsAdmin />} />,
       children: [
         { index: true, element: <Dashbord /> },
-        {path: 'category', element: <Category/>},
-        {path: 'product', element: <Product/>},
-        {path: 'product/:id', element: <Editproduct/>},
-        {path: 'manage', element:<Manage/>}
+        { path: 'category', element: <Category /> },
+        { path: 'product', element: <Product /> },
+        { path: 'product/:id', element: <Editproduct /> },
+        { path: 'manage', element: <Manage /> }
       ]
     },
 
-    {path: '/user' ,
-      element: <Cerrentuser element={<LayoutsUser/>}/>,
+    {
+      path: '/user',
+      element: <Cerrentuser element={<LayoutsUser />} />,
       children: [
-      {index: true, element: <Homeuser/>},
-      {path: 'payment', element: <Payment/>}
+        { index: true, element: <Homeuser /> },
+        { path: 'payment', element: <Payment /> },
+
 
       ]
-      
+
+    },
+
+   {
+  path: '/',
+  element: <LayoutsUser />,
+  children: [
+    {
+      path: 'paymentstatus',
+      element: (
+        <Elements stripe={stripePromise}>
+          <PaymentStatus />
+        </Elements>
+      )
     }
+  ]
+}
+
 
 
   ])
