@@ -35,3 +35,11 @@ export const saveorder = async(token: string, payload: PaymentIntent) =>{
         }
     })
 }
+
+export const getorder = async(token: string) =>{
+    return axios.get('http://localhost:5005/api/getuserorder',{
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    })
+}

@@ -31,6 +31,7 @@ const Listcart = () => {
             })
             .catch((err) => {
                 console.log(err.response)
+                toast.warning(err.response.data.message)
             })
     }
 

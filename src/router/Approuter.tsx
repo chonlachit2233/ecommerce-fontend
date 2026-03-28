@@ -3,7 +3,7 @@ import Layouts from '../layout/Layouts'
 import Home from "../pages/Home"
 import Shop from "../pages/Shop"
 import Cart from "../pages/Cart"
-import History from "../pages/History"
+import History from "../pages/user/History"
 import Checkout from "../pages/Checkout"
 import Register from "../pages/auth/Register"
 import Login from "../pages/auth/Login"
@@ -35,7 +35,6 @@ const Approuter = () => {
         { index: true, element: <Home /> },
         { path: 'shop', element: <Shop /> },
         { path: 'cart', element: <Cart /> },
-        { path: 'history', element: <History /> },
         { path: 'checkout', element: <Checkout /> },
         { path: 'register', element: <Register /> },
         { path: 'login', element: <Login /> },
@@ -62,6 +61,7 @@ const Approuter = () => {
       children: [
         { index: true, element: <Homeuser /> },
         { path: 'payment', element: <Payment /> },
+        { path: 'history', element: <History /> },
 
 
       ]
